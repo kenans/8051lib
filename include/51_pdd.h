@@ -4,6 +4,7 @@
 //                  Includes
 // --------------------------------------------------
 #include "reg51.h"
+#include "51_config.h"
 // --------------------------------------------------
 //                  51 PDD
 // --------------------------------------------------
@@ -29,7 +30,9 @@
 #define Ext1_GetInterruptFlag()          IE1
 #define Ext1_SetEdgeTrigger(enable_edge) (enable_edge)?(IT1=1):(IT1=0)        
 // System clock
+#ifndef OSC_FREQUENCY_HZ
 #define OSC_FREQUENCY_HZ                        12000000UL
+#endif
 #define TIMER_FREQUENCY_HZ	                (OSC_FREQUENCY_HZ/12UL)
 // TIMER0
 #define Timer0_SetMode(mode)                    Timer0_SetMode_##mode()

@@ -1,12 +1,15 @@
 #ifndef _RINGBUF_H_
 #define _RINGBUF_H_
+// Include
+#include "51_config.h"
 /**
  * -------------------------------------------------------------------------------------------
- *                                          Macros
+ *                                          LocalBuffer
  * -------------------------------------------------------------------------------------------
 */
-#if 0
-#define _LOCAL_BUFFER_COUNT 3
+#ifndef _LOCAL_BUFFER_COUNT
+#define _LOCAL_BUFFER_COUNT 1
+#endif
 #define LocalBuf_IsEmpty()          ((_start)==(_end))
 #define LocalBuf_IsFull()           (((_end+1)%(_size))==(_start))
 #define LocalBuf_NumOfElements()    (((_end)>=(_start))?((_end)-(_start)):((_end)+(_size)-(_start)))
@@ -17,7 +20,12 @@
 #define LocalBuf_Remove()           do{++_start;_start%=_size;}while(0)
 #define LocalBuf_Init()             do{(_start)=0;(_end)=0;}while(0)
 #define LocalBuf_Clear()            LocalBuf_Init()
-#else
+
+/**
+ * -------------------------------------------------------------------------------------------
+ *                                          RingBuffer
+ * -------------------------------------------------------------------------------------------
+*/
 #define RingBufDeclare(ring_buf_name, item_type, count_type, buf_count) \
             struct{item_type data[buf_count];count_type start,end,size;}ring_buf_name
 #define RingBufInit(ring_buf) \
@@ -40,6 +48,5 @@
 #define RingBufPeekIndex(ring_buf,index)  ((ring_buf)->data[((ring_buf)->start+index)%((ring_buf)->size)])
 #define RingBufRemove(ring_buf)           do{++((ring_buf)->start);((ring_buf)->start)%=((ring_buf)->size);}while(0)
 #define RingBufClear(ring_buf)            RingBufInit(ring_buf)
-#endif
 
 #endif
