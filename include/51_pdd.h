@@ -39,11 +39,19 @@
 #define Timer0_SetMode_3()                      TMOD|=0x03U
 #define Timer0_SetCounter(is_counter)           (is_counter)?(TMOD|=0x04):(TMOD&=(~0x04))
 #define Timer0_SetGate(gate_enable)             (gate_enable)?(TMOD|=0x08):(TMOD&=(~0x08))
+#if OSC_FREQUENCY_HZ==12000000
 #define Timer0_SetPeriodUs_Mode0(period_us) 	do{TH0=(8191U-period_us+1U)/32U;TL0=(8191U-period_us+1U)%32U;}while(0)
 #define Timer0_SetPeriodUs_Mode1(period_us)  	do{TH0=(65535U-period_us+1U)/256U;TL0=(65535U-period_us+1U)%256U;}while(0)
 #define Timer0_SetPeriodMs_Mode1(period_ms)  	Timer0_SetPeriodUs_Mode1(period_ms*1000U)
 #define Timer0_SetPeriodUs_Mode2(period_us)     do{TH0=255U-period_us+1U;TL0=255U-period_us+1U;}while(0)
 #define Timer0_SetPeriodUs_Mode3(period_us)
+#if OSC_FREQUENCY_HZ==11059200
+#define Timer0_SetPeriodUs_Mode0(period_us) 	do{TH0=(8191U-period_us*576L/625L+1U)/32U;TL0=(8191U-period_us*576L/625L+1U)%32U;}while(0)
+#define Timer0_SetPeriodUs_Mode1(period_us)  	do{TH0=(65535U-period_us*576L/625L+1U)/256U;TL0=(65535U-period_us*576L/625L+1U)%256U;}while(0)
+#define Timer0_SetPeriodMs_Mode1(period_ms)  	Timer0_SetPeriodUs_Mode1(period_ms*576L/25L*40UL)
+#define Timer0_SetPeriodUs_Mode2(period_us)     do{TH0=255U-period_us*576L/625L+1U;TL0=255U-period_us*576L/625L+1U;}while(0)
+#define Timer0_SetPeriodUs_Mode3(period_us)
+#endif // if OSC_FREQUENCY_HZ==12000000
 #define Timer0_InterruptEnable()                ET0=1
 #define Timer0_InterruptDisable()               ET0=0
 #define Timer0_IntHighPriority(high_prio)       (high_prio)?(PT0=1):(PT0=0)
@@ -59,10 +67,12 @@
 #define Timer1_SetMode_3()                      TMOD|=0x30U
 #define Timer1_SetCounter(is_counter)           (is_counter)?(TMOD|=0x40):(TMOD&=(~0x40))
 #define Timer1_SetGate(gate_enable)             (gate_enable)?(TMOD|=0x80):(TMOD&=(~0x80))
+#if OSC_FREQUENCY_HZ==12000000
 #define Timer1_SetPeriodUs_Mode0(period_us) 	do{TH1=(8191U-period_us+1U)/32;TL1=(8191U-period_us+1U)%32U;}while(0)
 #define Timer1_SetPeriodUs_Mode1(period_us)  	do{TH1=(65535U-period_us+1U)/256U;TL1=(65535U-period_us+1U)%256U;}while(0)
 #define Timer1_SetPeriodMs_Mode1(period_ms)  	Timer1_SetPeriodUs_Mode1(period_ms*1000U)
 #define Timer1_SetPeriodUs_Mode2(period_us)     do{TH1=255U-period_u+1U;TL1=255U-period_us+1U;}while(0)
+#endif // if OSC_FREQUENCY_HZ==12000000
 #define Timer1_InterruptEnable()                ET1=1
 #define Timer1_InterruptDisable()               ET1=0
 #define Timer1_IntHighPriority(high_prio)       (high_prio)?(PT1=1):(PT1=0)
