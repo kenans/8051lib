@@ -1,5 +1,9 @@
 #include "i2c.h"
 
+/**
+ *  Method: I2C_WriteByte
+ *      Write a byte to I2C bus
+ */
 void I2C_WriteByte(uint8_t dat)
 {
      uint8_t i = 0;
@@ -16,6 +20,10 @@ void I2C_WriteByte(uint8_t dat)
      SCL=0;                        // back to low level 
 }
 
+/**
+ *  Method: I2C_ReadByte
+ *      Read a byte from I2C bus
+ */
 uint8_t I2C_ReadByte(void)
 {
      uint8_t i = 0, dat = 0;
@@ -34,6 +42,10 @@ uint8_t I2C_ReadByte(void)
      return dat;   
 }
 
+/**
+ *  Method: I2C_IsGetAKG
+ *      Get an AKG signal from I2C bus
+ */ 
 bool I2C_IsGetAKG(void)
 {
     bool is_get_akg;
