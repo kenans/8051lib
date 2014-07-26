@@ -9,10 +9,3 @@ void DelayMs(unsigned int num)
 		}
 	}
 }
-
-void Delay10Us(unsigned int num)
-{
-	for (;num > 0;num--) {
-		//_nop_();
-	}
-}
