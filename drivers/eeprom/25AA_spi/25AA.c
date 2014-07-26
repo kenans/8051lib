@@ -6,7 +6,7 @@ static void _DelayMs(unsigned int num);
 /**
  *  EEPROM read a byte
  */
-uint8_t EEPROM_25AA_Read(uint16_t addr)
+uint8_t EEPROM_25AA_ReadByte(uint16_t addr)
 {
     uint8_t dat;
     // Select device
@@ -35,7 +35,7 @@ uint8_t EEPROM_25AA_Read(uint16_t addr)
 /**
  *  EEPROM write a byte
  */
-void EEPROM_25AA_Write(uint16_t addr, uint8_t dat)
+void EEPROM_25AA_WriteByte(uint16_t addr, uint8_t dat)
 {
     EEPROM_25AA_WriteEnable();
     // Select device

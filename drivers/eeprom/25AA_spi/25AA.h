@@ -21,9 +21,9 @@
 #define _SelectDevice()     SPI_SelectDevice()
 #define _DeselectDevice()   SPI_DeselectDevice()
 
-void EEPROM_25AA_Write(uint16_t addr, uint8_t dat);
+void EEPROM_25AA_WriteByte(uint16_t addr, uint8_t dat);
 //void EEPROM_25AA_WriteBlock(uint16_t addr, uint8_t *dat, uint8_t len);
-uint8_t EEPROM_25AA_Read(uint16_t addr);
+uint8_t EEPROM_25AA_ReadByte(uint16_t addr);
 //void EEPROM_25AA_ReadBlock(uint16_t addr, uint8_t *dat, uint8_t len);
 
 #endif // _25AA_H_
