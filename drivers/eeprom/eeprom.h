@@ -1,12 +1,19 @@
 #ifndef _EEPROM_H_
 #define _EEPROM_H_
-// Include
+// ------------------------  Include  ---------------------------
 #include "types.h"
-// Configuration
+// ---------------------  Configuraion  -------------------------
 //  0. 25AA SPI EEPROM
 //  1. 24LC I2C EEPROM
 #define EEPROM_TYPE 0
-// APIs
+// --------------------------  API  -----------------------------
+//   These funcitons are implemented as macros.
+// --------------------------------------------------------------
+// void     EEPROM_Init(void);
+// uint8_t  EEPROM_ReadByte(uint8_t addr);
+// void     EEPROM_WriteByte(uint8_t addr, uint8_t dat);
+
+// ---------------------  Funcitions  -------------------------
 #if EEPROM_TYPE==0      // EEPROM_TYPE == 0 
 #include "25AA.h"
 #define EEPROM_Init()   EEPROM_25AA_Init()
@@ -28,7 +35,5 @@
 #else
 #error "Error: EEPROM_TYPE not defined"
 #endif // EEPROM_TYPE
-
-
 
 #endif // _EEPROM_H_

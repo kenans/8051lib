@@ -13,7 +13,8 @@ typedef unsigned int uint16_t;
 typedef signed int int16_t;
 typedef unsigned long uint32_t;
 typedef signed long int32_t;
-typedef int8_t bool;
+typedef bit bool;
+
 #define NULL (void*)0
 #define TRUE 1
 #define FALSE 0
