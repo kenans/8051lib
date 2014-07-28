@@ -16,16 +16,16 @@
 #define INTERRUPT_ENABLE_TMR0       0x02U
 #define INTERRUPT_ENABLE_EXT0       0x01U
 // Globle Interrupt
-#define Interrupt_GlobalEnable()         EA=1
-#define Interrupt_GlobalDisable()        EA=0
+#define CPU_EnableGlobalInterrupt()         EA=1
+#define CPU_DisableGlobalInterrupt()        EA=0
 // Ext Int
-#define Ext0_InterruptEnable()           EX0=1
-#define Ext0_InterruptDisable()          EX0=0
+#define Ext0_EnableInterrupt()           EX0=1
+#define Ext0_DisableInterrupt()          EX0=0
 #define Ext0_IntHighPriority(high_prio)  (high_prio)?(PX0=1):(PX0=0)
 #define Ext0_GetInterruptFlag()          IE0
 #define Ext0_SetEdgeTrigger(enable_edge) (enable_edge)?(IT0=1):(IT0=0)
-#define Ext1_InterruptEnable()           EX1=1
-#define Ext1_InterruptDisable()          EX1=0
+#define Ext1_EnableInterrupt()           EX1=1
+#define Ext1_DisableInterrupt()          EX1=0
 #define Ext1_IntHighPriority(high_prio)  (high_prio)?(PX1=1):(PX1=0)
 #define Ext1_GetInterruptFlag()          IE1
 #define Ext1_SetEdgeTrigger(enable_edge) (enable_edge)?(IT1=1):(IT1=0)        
@@ -55,8 +55,8 @@
 #define Timer0_SetPeriodUs_Mode2(period_us)     do{TH0=255U-period_us*576L/625L+1U;TL0=255U-period_us*576L/625L+1U;}while(0)
 #define Timer0_SetPeriodUs_Mode3(period_us)
 #endif // if OSC_FREQUENCY_HZ==12000000
-#define Timer0_InterruptEnable()                ET0=1
-#define Timer0_InterruptDisable()               ET0=0
+#define Timer0_EnableInterrupt()                ET0=1
+#define Timer0_DisableInterrupt()               ET0=0
 #define Timer0_IntHighPriority(high_prio)       (high_prio)?(PT0=1):(PT0=0)
 #define Timer0_GetInterruptFlag()               TF0
 #define Timer0_ClearInterruptFlag()             TF0=0
@@ -76,8 +76,8 @@
 #define Timer1_SetPeriodMs_Mode1(period_ms)  	Timer1_SetPeriodUs_Mode1(period_ms*1000U)
 #define Timer1_SetPeriodUs_Mode2(period_us)     do{TH1=255U-period_u+1U;TL1=255U-period_us+1U;}while(0)
 #endif // if OSC_FREQUENCY_HZ==12000000
-#define Timer1_InterruptEnable()                ET1=1
-#define Timer1_InterruptDisable()               ET1=0
+#define Timer1_EnableInterrupt()                ET1=1
+#define Timer1_DisableInterrupt()               ET1=0
 #define Timer1_IntHighPriority(high_prio)       (high_prio)?(PT1=1):(PT1=0)
 #define Timer1_GetInterruptFlag()               TF1
 #define Timer1_ClearInterruptFlag()             TF1=0
@@ -91,8 +91,8 @@
 #define UART_RecvDisable()                      REN=0
 #define UART_GetTransmitBit8()                  TB8
 #define UART_GetRecvBit8()                      RB8
-#define UART_InterruptEnable()                  ES=1
-#define UART_InterruptDisable()                 ES=0
+#define UART_EnableInterrupt()                  ES=1
+#define UART_DisableInterrupt()                 ES=0
 #define UART_IntHighPriority(high_prio)         (high_prio)?(PS=1):(PS=0)
 #define UART_GetTransmitIntFlag()               TI
 #define UART_GetRecvIntFlag()                   RI
