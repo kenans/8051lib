@@ -29,4 +29,8 @@ typedef char err_t;
 #define ERR_COMMON  -3
 #endif
 
+#ifndef ERR_TIMEOUT
+#define ERR_TIMEOUT -4
+#endif
+
 #endif // _ERR_H_
