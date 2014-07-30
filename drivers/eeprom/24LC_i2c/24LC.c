@@ -1,6 +1,6 @@
 #include "24LC.h"
 
-void EEPORM_24LC_WriteByte(uint16_t addr, uint8_t dat)
+void EEPROM_24LC_WriteByte(uint16_t addr, uint8_t dat)
 {
     // Start
     I2C_Start();

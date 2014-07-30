@@ -1,3 +1,6 @@
+/**
+ *  This is a driver for 24LC512 I2C eeprom 
+ */
 #ifndef _24LC_H_
 #define _24LC_H_
 // Includes
@@ -9,7 +12,7 @@
 
 // APIs
 #define EEPROM_24LC_Init() I2C_Init()
-uint8_t EEPORM_24LC_ReadByte(uint16_t addr);
-void EEPORM_24LC_WriteByte(uint16_t addr, uint8_t dat);
+uint8_t EEPROM_24LC_ReadByte(uint16_t addr);
+void EEPROM_24LC_WriteByte(uint16_t addr, uint8_t dat);
 
 #endif // _24LC_H_
