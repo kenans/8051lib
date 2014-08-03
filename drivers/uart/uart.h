@@ -2,7 +2,6 @@
 #define _UART_H_
 
 // Include
-#include "51_pdd.h"
 #include "type.h"
 #include "ringbuf.h"
 #include "51_conifg.h"

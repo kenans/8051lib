@@ -1,9 +1,8 @@
 #ifndef _I2C_H_
 #define _I2C_H_
 // Includes
-#include <reg51.h>
+#include "51_config.h"
 #include "types.h"
-#include "intrins.h"
 // I2C speed configuration
 //      Here we stay at a low speed < 100Kbps. So the clock period should be at least
 // 10us, so each level at least 5us.

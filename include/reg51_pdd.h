@@ -1,10 +1,10 @@
-#ifndef _51_PDD_H_
-#define _51_PDD_H_
+#ifndef _REG51_PDD_H_
+#define _REG51_PDD_H_
 // --------------------------------------------------
 //                  Includes
 // --------------------------------------------------
-#include "reg51.h"
 #include "51_config.h"
+#include "REG51.H"
 // --------------------------------------------------
 //                  51 PDD
 // --------------------------------------------------
@@ -112,4 +112,4 @@
 #define CPU_EnterIdleMode()                     PCON|=0x01
 #define CPU_EnterPowerDownMode()                PCON|=0x02
 
-#endif // _51_PDD_H_
+#endif // _REG51_PDD_H_

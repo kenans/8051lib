@@ -6,6 +6,7 @@
  *                                 Include
  *  -----------------------------------------------------------------------
  */
+#include "51_config.h"
 /**
  *  -----------------------------------------------------------------------
  *                           Constant and Types
@@ -33,4 +34,7 @@ typedef char err_t;
 #define ERR_TIMEOUT -4
 #endif
 
+#ifndef ERR_FATAL
+#define ERR_FATAL   -5
+#endif
 #endif // _ERR_H_

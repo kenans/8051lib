@@ -7,9 +7,6 @@
  *                                          LocalBuffer
  * -------------------------------------------------------------------------------------------
 */
-#ifndef _LOCAL_BUFFER_COUNT
-#define _LOCAL_BUFFER_COUNT 1
-#endif
 #define LocalBuf_IsEmpty()          ((_start)==(_end))
 #define LocalBuf_IsFull()           (((_end+1)%(_size))==(_start))
 #define LocalBuf_NumOfElements()    (((_end)>=(_start))?((_end)-(_start)):((_end)+(_size)-(_start)))
@@ -20,7 +17,6 @@
 #define LocalBuf_Remove()           do{++_start;_start%=_size;}while(0)
 #define LocalBuf_Init()             do{(_start)=0;(_end)=0;}while(0)
 #define LocalBuf_Clear()            LocalBuf_Init()
-
 /**
  * -------------------------------------------------------------------------------------------
  *                                          RingBuffer

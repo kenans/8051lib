@@ -1,8 +1,7 @@
 #ifndef _SPI_H_
 #define _SPI_H_
-#include "reg51.h"
 #include "types.h"
-#include "intrins.h"
+#include "51_config.h"
 // Mode
 #define SPI_MODE 0
 #define CPOL 0
