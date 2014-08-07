@@ -40,7 +40,7 @@
 #elif REG51_TYPE==1
 #include "REG52.H"
 #elif REG51_TYPE==2
-#include "REG51xD2.h"
+#include "reg51xD2_pdd.h"
 #else
 #error "Error: REG51_TYPE out of range"
 #endif  // REG51_TYPE

@@ -22,12 +22,12 @@
 #define Ext0_EnableInterrupt()           EX0=1
 #define Ext0_DisableInterrupt()          EX0=0
 #define Ext0_IntHighPriority(high_prio)  (high_prio)?(PX0=1):(PX0=0)
-#define Ext0_GetInterruptFlag()          IE0
+#define Ext0_GetInterruptFlag()          IE0    // Clear automatically
 #define Ext0_SetEdgeTrigger(enable_edge) (enable_edge)?(IT0=1):(IT0=0)
 #define Ext1_EnableInterrupt()           EX1=1
 #define Ext1_DisableInterrupt()          EX1=0
 #define Ext1_IntHighPriority(high_prio)  (high_prio)?(PX1=1):(PX1=0)
-#define Ext1_GetInterruptFlag()          IE1
+#define Ext1_GetInterruptFlag()          IE1    // Clear automatically
 #define Ext1_SetEdgeTrigger(enable_edge) (enable_edge)?(IT1=1):(IT1=0)        
 // System clock
 #ifndef OSC_FREQUENCY_HZ
