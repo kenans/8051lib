@@ -125,7 +125,8 @@
 #define UART_GetByte()                          SBUF
 #define UART_SendByte(byte)                     SBUF=byte
 #endif
-// SPI
+// SPI , not pass test
+#if 0
 // SPCON
 #define SPCON_SFR           0xC3u
 #define SPCON_SPR2_MASK     0x80u
@@ -170,6 +171,7 @@
 #define SPI_Speed_1()       do{SPCON&=0xFDu;SPCON|=0x01u;}while(0)
 #define SPI_Speed_2()       do{SPCON|=0x02u;SPCON&=0xFEu;}while(0)
 #define SPI_Speed_3()       do{SPCON|=0x03u;}while(0)
+#endif  
 // Intenal XRAM  Default : AUXR=0x08 (enable internal XRAM=768 Bytes)
 #define XRAM_Enable()
 #define XRAM_Disable()

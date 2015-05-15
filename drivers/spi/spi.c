@@ -1,5 +1,6 @@
 #include "spi.h"
 
+#if 1
 //  Read a byte from SPI device
 uint8_t SPI_ReadByte()
 {
@@ -69,3 +70,8 @@ void SPI_WriteByte(uint8_t dat)
 #error "Error: CPHA should only be 0 or 1."
 #endif
 }
+#elif REG51_TYPE==1
+
+#elif REG51_TYPE==2
+
+#endif  // REG51_TYPE
